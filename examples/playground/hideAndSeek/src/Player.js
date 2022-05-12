@@ -2,9 +2,11 @@
  * @author Mugen87 / https://github.com/Mugen87
  */
 
-import { MovingEntity, GameEntity, Quaternion, AABB, Ray, Vector3 } from '../../../../build/yuka.module.js';
+import { ArriveBehavior, Vehicle, GameEntity, Quaternion, AABB, Ray, Vector3, Think } from '../../../../build/yuka.module.js';
+import * as THREE from 'https://cdn.jsdelivr.net/npm/three@0.109/build/three.module.js';
 import { CustomObstacle } from './CustomObstacle.js';
 import { Shotgun } from './Shotgun.js';
+import { RestEvaluator, GatherEvaluator } from './Evaluators.js';
 
 import world from './World.js';
 
@@ -15,7 +17,7 @@ const intersectionPoint = new Vector3();
 const intersectionNormal = new Vector3();
 const reflectionVector = new Vector3();
 
-class Player extends MovingEntity {
+class Player extends Vehicle {
 
 	constructor() {
 
@@ -39,7 +41,13 @@ class Player extends MovingEntity {
 		this.weapon.position.set( 0.25, - 0.3, - 1 );
 		this.weaponContainer.add( this.weapon );
 
-		//
+		// brain
+		this.brain = new Think( this );
+		this.brain.addEvaluator( new GatherEvaluator() );
+
+		const arriveBehavior = new ArriveBehavior();
+		arriveBehavior.deceleration = 1.5;
+		this.steering.add( arriveBehavior );
 
 		this.forward.set( 0, 0, - 1 );
 		this.maxSpeed = 8;
@@ -116,9 +124,23 @@ class Player extends MovingEntity {
 
 		}
 
+		this.brain.execute();
+
+		this.brain.arbitrate();
+
 		return super.update( delta );
 
 	}
+
+}
+
+function createAnimationAction( mixer, clip ) {
+
+	let action = mixer.clipAction( clip );
+	action.play();
+	action.enabled = false;
+
+	return action;
 
 }
 

@@ -224,11 +224,17 @@ class Shotgun extends GameEntity {
 
 			this.roundsLeft --;
 
+			
 			this.endTimeShotReload = this.currentTime + this.shotReloadTime;
 			this.endTimeShot = this.currentTime + this.shotTime;
-
+			
 			this.updateUI();
-
+			
+			// Auto reload
+			if (this.roundsLeft == 0) {
+				this.status = STATUS.READY;
+				this.reload()
+			}
 		} else if ( this.status === STATUS.EMPTY ) {
 
 			const audio = world.audios.get( 'empty' );

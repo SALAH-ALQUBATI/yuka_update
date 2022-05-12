@@ -23,9 +23,11 @@ class World {
 	constructor() {
 
 		this.maxBulletHoles = 48;
+		// Enemy and spawn
 		this.enemyCount = 3;
 		this.minSpawningDistance = 10;
 
+		// control entity and time
 		this.entityManager = new YUKA.EntityManager();
 		this.time = new YUKA.Time();
 
@@ -97,6 +99,7 @@ class World {
 
 		const enemies = this.enemies;
 
+		// Adding enemies
 		if ( enemies.length < this.enemyCount ) {
 
 			for ( let i = enemies.length, l = this.enemyCount; i < l; i ++ ) {
@@ -115,6 +118,7 @@ class World {
 
 			this.refreshUI();
 
+			// Disable if finished
 			if ( this.playingTime < 0 ) {
 
 				this.gameOver = true;
@@ -156,6 +160,7 @@ class World {
 
 		}
 
+		// Push enemy here
 		if ( entity instanceof Enemy ) {
 
 			this.enemies.push( entity );
@@ -231,11 +236,13 @@ class World {
 
 	}
 
+	// This is how you got the enemy
 	addEnemy() {
 
 		const renderComponent = this.assetManager.models.get( 'enemy' ).clone();
 
-		const enemyMaterial = new THREE.MeshStandardMaterial( { color: 0xee0808, side: THREE.DoubleSide, transparent: true } );
+		// Set color
+		const enemyMaterial = new THREE.MeshStandardMaterial( { color: 0x12e900, side: THREE.DoubleSide, transparent: true } );
 		enemyMaterial.onBeforeCompile = function ( shader ) {
 
 			shader.uniforms.alpha = { value: 0 };
@@ -283,6 +290,9 @@ class World {
 
 		enemy.position.copy( spawningPoint );
 		enemy.spawningPoint = spawningPoint;
+
+		// Get your enemy position like this
+		console.log(enemy.position)
 
 		this.add( enemy );
 

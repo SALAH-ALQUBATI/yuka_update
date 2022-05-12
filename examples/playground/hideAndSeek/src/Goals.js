@@ -2,7 +2,7 @@
  * @author Mugen87 / https://github.com/Mugen87
  */
 
-import { Goal, CompositeGoal, Matrix4, Vector3 } from '../../../build/yuka.module.js';
+import { Goal, CompositeGoal, Matrix4, Vector3 } from '../../../../build/yuka.module.js';
 
 const REST = 'REST';
 const GATHER = 'GATHER';
@@ -15,6 +15,8 @@ const WALK = 'WALK';
 const RIGHT_TURN = 'RIGHT_TURN';
 const LEFT_TURN = 'LEFT_TURN';
 const IDLE = 'IDLE';
+
+const RUN = 'RUN';
 
 const inverseMatrix = new Matrix4();
 const localPosition = new Vector3();
@@ -78,19 +80,19 @@ class GatherGoal extends CompositeGoal {
 
 	activate() {
 
+		// console.log(owner)
 		this.clearSubgoals();
-		
+
 		const owner = this.owner;
-		console.log(owner)
 
-		owner.ui.currentGoal.textContent = GATHER;
+		// owner.ui.currentGoal.textContent = GATHER;
 
-		this.addSubgoal( new FindNextCollectibleGoal( owner ) );
+		/* this.addSubgoal( new FindNextCollectibleGoal( owner ) );
 		this.addSubgoal( new SeekToCollectibleGoal( owner ) );
-		this.addSubgoal( new PickUpCollectibleGoal( owner ) );
+		this.addSubgoal( new PickUpCollectibleGoal( owner ) ); */
 
-		const idle = owner.animations.get( IDLE );
-		idle.fadeOut( owner.crossFadeDuration );
+		/* const idle = owner.animations.get( IDLE );
+		idle.fadeOut( owner.crossFadeDuration ); */
 
 	}
 
@@ -122,7 +124,7 @@ class FindNextCollectibleGoal extends Goal {
 
 		// update UI
 
-		owner.ui.currentSubgoal.textContent = FIND_NEXT;
+		// owner.ui.currentSubgoal.textContent = FIND_NEXT;
 
 		// select closest collectible
 
@@ -156,8 +158,8 @@ class FindNextCollectibleGoal extends Goal {
 
 		this.animationId = ( localPosition.x >= 0 ) ? LEFT_TURN : RIGHT_TURN;
 
-		const turn = owner.animations.get( this.animationId );
-		turn.reset().fadeIn( owner.crossFadeDuration );
+		// const turn = owner.animations.get( this.animationId );
+		// turn.reset().fadeIn( owner.crossFadeDuration );
 
 	}
 
