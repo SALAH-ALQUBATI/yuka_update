@@ -81,7 +81,7 @@ class World {
 			this._initPlayer();
 			this._initControls();
 			this._initGround();
-			this._initObstacles();
+			// this._initObstacles();
 			this._initSpawningPoints();
 			this._initUI();
 
