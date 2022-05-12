@@ -90,7 +90,7 @@ class Shotgun extends GameEntity {
 
 		}
 
-		// check muzzle fire
+	// check muzzle fire
 
 		if ( this.currentTime >= this.endTimeMuzzleFire ) {
 
@@ -100,7 +100,7 @@ class Shotgun extends GameEntity {
 
 		}
 
-		// check shoot
+	// check shoot
 
 		if ( this.currentTime >= this.endTimeShot ) {
 
