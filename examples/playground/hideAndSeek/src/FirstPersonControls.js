@@ -218,7 +218,7 @@ function onKeyDown( event ) {
 
 	switch ( event.keyCode ) {
 
-		case 38: // up
+		/* case 38: // up
 		case 87: // w
 			this.input.forward = true;
 			break;
@@ -236,7 +236,7 @@ function onKeyDown( event ) {
 		case 39: // right
 		case 68: // d
 			this.input.right = true;
-			break;
+			break; */
 
 		case 82: // r
 			this.owner.weapon.reload();

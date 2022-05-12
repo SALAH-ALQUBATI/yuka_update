@@ -24,8 +24,8 @@ class World {
 
 		this.maxBulletHoles = 48;
 		// Enemy and spawn
-		this.enemyCount = 3;
-		this.minSpawningDistance = 10;
+		this.enemyCount = 1;
+		this.minSpawningDistance = 15;
 
 		// control entity and time
 		this.entityManager = new YUKA.EntityManager();
@@ -293,6 +293,10 @@ class World {
 
 		// Get your enemy position like this
 		console.log(enemy.position)
+
+		// Chase em
+		const seekBehavior = new YUKA.SeekBehavior( enemy.position );
+		this.player.steering.add( seekBehavior );
 
 		this.add( enemy );
 
