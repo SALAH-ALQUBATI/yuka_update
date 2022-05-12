@@ -42,12 +42,12 @@ class Player extends Vehicle {
 		this.weaponContainer.add( this.weapon );
 
 		// brain
-		this.brain = new Think( this );
+		/* this.brain = new Think( this );
 		this.brain.addEvaluator( new GatherEvaluator() );
 
 		const arriveBehavior = new ArriveBehavior();
 		arriveBehavior.deceleration = 1.5;
-		this.steering.add( arriveBehavior );
+		this.steering.add( arriveBehavior ); */
 
 		this.forward.set( 0, 0, - 1 );
 		this.maxSpeed = 8;
@@ -124,9 +124,9 @@ class Player extends Vehicle {
 
 		}
 
-		this.brain.execute();
+		/* this.brain.execute();
 
-		this.brain.arbitrate();
+		this.brain.arbitrate(); */
 
 		return super.update( delta );
 
