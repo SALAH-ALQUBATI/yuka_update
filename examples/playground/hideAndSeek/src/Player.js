@@ -50,7 +50,7 @@ class Player extends Vehicle {
 		this.steering.add( arriveBehavior ); */
 
 		this.forward.set( 0, 0, - 1 );
-		this.maxSpeed = 8;
+		this.maxSpeed = 12;
 		this.updateOrientation = false;
 
 	}

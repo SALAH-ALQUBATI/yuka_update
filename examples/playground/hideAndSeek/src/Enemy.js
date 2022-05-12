@@ -28,7 +28,7 @@ class Enemy extends Vehicle {
 		const player = this.manager.getEntityByName( 'player' );
 
 		const hideBehavior = new HideBehavior( this.manager, player );
-		// this.steering.add( hideBehavior );
+		this.steering.add( hideBehavior );
 
 		return this;
 

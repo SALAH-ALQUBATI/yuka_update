@@ -124,7 +124,7 @@ class Shotgun extends GameEntity {
 
 	reload() {
 
-		if ( ( this.status === STATUS.READY || this.status === STATUS.EMPTY ) && this.ammo > 0 ) {
+		if ( ( this.status === STATUS.READY || this.status === STATUS.EMPTY ) && this.ammo > 0 && this.roundsLeft < this.roundsPerClip) {
 
 			this.status = STATUS.RELOAD;
 
