@@ -295,8 +295,8 @@ class World {
 		console.log(enemy.position)
 
 		// Chase em
-		const seekBehavior = new YUKA.SeekBehavior( enemy.position );
-		this.player.steering.add( seekBehavior );
+		const pursuitBehavior = new YUKA.PursuitBehavior( enemy, 2 );
+		this.player.steering.add( pursuitBehavior );
 
 		this.add( enemy );
 
@@ -521,6 +521,9 @@ class World {
 
 		const geometry = new YUKA.MeshGeometry( vertices, indices );
 
+		const obstacleAvoidanceBehavior = new YUKA.ObstacleAvoidanceBehavior( this.obstacles );
+		this.player.steering.add( obstacleAvoidanceBehavior );
+
 		for ( let i = 0; i < 16; i ++ ) {
 
 			const mesh = obstacleMesh.clone();
@@ -546,6 +549,8 @@ class World {
 			}
 
 		}
+
+		console.log(this.player.steering)
 
 	}
 

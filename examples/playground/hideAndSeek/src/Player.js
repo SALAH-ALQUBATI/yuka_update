@@ -2,7 +2,7 @@
  * @author Mugen87 / https://github.com/Mugen87
   */
 
-import { ArriveBehavior, Vehicle, GameEntity, Quaternion, AABB, Ray, Vector3, Think } from '../../../../build/yuka.module.js';
+import { ArriveBehavior, Vehicle, GameEntity, Quaternion, AABB, Ray, Vector3, Smoother } from '../../../../build/yuka.module.js';
 import * as THREE from 'https://cdn.jsdelivr.net/npm/three@0.109/build/three.module.js';
 import { CustomObstacle } from './CustomObstacle.js';
 import { Shotgun } from './Shotgun.js';
@@ -50,7 +50,9 @@ class Player extends Vehicle {
 		this.steering.add( arriveBehavior ); */
 
 		this.forward.set( 0, 0, - 1 );
-		this.maxSpeed = 12;
+		this.maxSpeed = 8;
+		this.smoother = new Smoother( 20 );
+		
 		this.updateOrientation = false;
 
 	}

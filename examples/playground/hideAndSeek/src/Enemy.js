@@ -69,6 +69,9 @@ class Enemy extends Vehicle {
 
 			} else {
 
+				const player = this.manager.getEntityByName( 'player' );
+				player.steering.remove( this );
+
 				world.remove( this );
 
 			}

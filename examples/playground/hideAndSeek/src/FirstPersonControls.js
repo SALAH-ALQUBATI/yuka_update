@@ -86,7 +86,7 @@ class FirstPersonControls extends EventDispatcher {
 		const input = this.input;
 		const owner = this.owner;
 
-		velocity.x -= velocity.x * this.brakingPower * delta;
+		/* velocity.x -= velocity.x * this.brakingPower * delta;
 		velocity.z -= velocity.z * this.brakingPower * delta;
 
 		direction.z = Number( input.forward ) - Number( input.backward );
@@ -96,7 +96,7 @@ class FirstPersonControls extends EventDispatcher {
 		if ( input.forward || input.backward ) velocity.z -= direction.z * this.acceleration * delta;
 		if ( input.left || input.right ) velocity.x -= direction.x * this.acceleration * delta;
 
-		owner.velocity.copy( velocity ).applyRotation( owner.rotation );
+		owner.velocity.copy( velocity ).applyRotation( owner.rotation ); */
 
 		//
 
