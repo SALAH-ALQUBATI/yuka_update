@@ -50,7 +50,7 @@ class Player extends Vehicle {
 		this.steering.add( arriveBehavior ); */
 
 		this.forward.set( 0, 0, - 1 );
-		this.maxSpeed = 8;
+		this.maxSpeed = 6;
 		this.smoother = new Smoother( 20 );
 		
 		this.updateOrientation = false;
@@ -98,7 +98,7 @@ class Player extends Vehicle {
 
 					// perform ray/AABB intersection test
 
-					if ( ray.intersectAABB( aabb, intersectionPoint ) !== null ) {
+					/* if ( ray.intersectAABB( aabb, intersectionPoint ) !== null ) {
 
 						// derive normal vector
 
@@ -118,7 +118,7 @@ class Player extends Vehicle {
 
 						this.velocity.multiplyScalar( speed * f );
 
-					}
+					} */
 
 				}
 
