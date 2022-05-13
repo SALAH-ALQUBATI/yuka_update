@@ -23,11 +23,11 @@ class World {
 	constructor() {
 
 		this.maxBulletHoles = 48;
-		// Enemy and spawn
+		 // Enemy and spawn
 		this.enemyCount = 1;
 		this.minSpawningDistance = 15;
 
-		// control entity and time
+		 // control entity and time
 		this.entityManager = new YUKA.EntityManager();
 		this.time = new YUKA.Time();
 
