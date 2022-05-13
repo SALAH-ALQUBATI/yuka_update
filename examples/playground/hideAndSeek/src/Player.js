@@ -1,6 +1,6 @@
 /**
  * @author Mugen87 / https://github.com/Mugen87
- */
+  */
 
 import { ArriveBehavior, Vehicle, GameEntity, Quaternion, AABB, Ray, Vector3, Think } from '../../../../build/yuka.module.js';
 import * as THREE from 'https://cdn.jsdelivr.net/npm/three@0.109/build/three.module.js';
