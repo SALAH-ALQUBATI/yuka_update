@@ -1,5 +1,5 @@
 /**
- * @author Mugen87 / https://github.com/Mugen87
+  * @author Mugen87 / https://github.com/Mugen87
  */
 
 import { Goal, CompositeGoal, Matrix4, Vector3 } from '../../../../build/yuka.module.js';
